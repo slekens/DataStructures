@@ -7,11 +7,11 @@
 
 import Foundation
 
-/// Class node.
+/// Class for a simple node.
 public class Node<Value> {
+    
     public var value: Value
     public var next: Node?
-    
     
     /// Initializer for the Node.
     /// - Parameters:

@@ -171,6 +171,9 @@ public struct LinkedList<Value> {
         tail = newNode
     }
     
+    /// Return the newly copied node based on the passed in parameter.
+    /// - Parameter node: The node to copy.
+    /// - Returns: The newly copied node.
     private mutating func copyNodes(returningCopyOf node: Node<Value>?) -> Node<Value>? {
         
         guard !isKnownUniquelyReferenced(&head) else {
