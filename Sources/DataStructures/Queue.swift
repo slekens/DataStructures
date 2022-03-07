@@ -7,11 +7,43 @@
 
 import Foundation
 
-/// Protocol to give the basic elements to build a Queue.
-public protocol Queue {
-    associatedtype Element
-    mutating func enqueue(_ element: Element) -> Bool
-    mutating func dequeue() -> Element?
-    var isEmpty: Bool { get }
-    var peek: Element? { get }
+///  Use FIFO First-In First-Out ordering.
+public struct Queue<T>: QueueProtocol {
+    
+    private var array: [T] = []
+    
+    public init() { }
+    
+    /// Check if the queue is empty.
+    public var isEmpty: Bool {
+        array.isEmpty
+    }
+    
+    /// Return the first element in the queue without removing it.
+    public var peek: T? {
+        array.first
+    }
+    
+    /// Insert an element at the back of the queue.
+    /// - Parameter element: The element to add.
+    /// - Returns: True if the operation was successful.
+    @discardableResult
+    public mutating func enqueue(_ element: T) -> Bool {
+        array.append(element)
+        return true
+    }
+    
+    /// Remove the element at the front of the queue.
+    /// - Returns: Return the element added.
+    @discardableResult
+    public mutating func dequeue() -> T? {
+        isEmpty ? nil : array.removeFirst()
+    }
+}
+
+extension Queue: CustomStringConvertible {
+    
+    public var description: String {
+        String(describing: array)
+    }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 /// This is queue using a double Linked List.
-public class QueueLinkedList<T>: Queue {
+public class QueueLinkedList<T>: QueueProtocol {
     
     private var list = DoublyLinkedList<T>()
 

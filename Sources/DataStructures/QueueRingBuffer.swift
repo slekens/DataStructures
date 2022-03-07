@@ -8,7 +8,7 @@
 import Foundation
 
 /// Queue data structure using a ring buffer.
-public struct QueueRingBuffer<T>: Queue {
+public struct QueueRingBuffer<T>: QueueProtocol {
     
     private var ringBuffer: RingBuffer<T>
     
